@@ -1,14 +1,13 @@
 import pandas as pd
+from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_absolute_error
 from sklearn.model_selection import train_test_split
-from sklearn.tree import DecisionTreeRegressor
 
 
-def decision_tree_regressor(
+def random_forest_regressor(
     csv_path: str, features: list, prediction_target: str, max_leaf_nodes: int = None
 ):
-    """Decision Tree Regressor.
-
+    """
     Args:
         csv_path (str): The csv file path.
         features (list): The features list.
@@ -28,7 +27,7 @@ def decision_tree_regressor(
     train_X, test_X, train_y, test_y = train_test_split(X, y, random_state=0)
 
     # Form model.
-    model = DecisionTreeRegressor(max_leaf_nodes=max_leaf_nodes, random_state=0)
+    model = RandomForestRegressor(max_leaf_nodes=max_leaf_nodes, random_state=0)
     model.fit(train_X, train_y)
 
     # Validate model.

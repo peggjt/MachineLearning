@@ -1,8 +1,8 @@
 import unittest
-from decision_trees.decision_tree_regressor import decision_tree_regressor
+from decision_trees.random_forest_regressor import random_forest_regressor
 
 
-class TestDecisionTreeRegressor(unittest.TestCase):
+class TestRandomForestRegressor(unittest.TestCase):
 
     def test_basic(self):
 
@@ -15,14 +15,14 @@ class TestDecisionTreeRegressor(unittest.TestCase):
             "BedroomAbvGr",
             "TotRmsAbvGrd",
         ]
-        model, mae = decision_tree_regressor(
+        model, mae = random_forest_regressor(
             csv_path="test_data.csv",
             features=features,
             prediction_target="SalePrice",
             max_leaf_nodes=None,
         )
 
-        self.assertEqual(mae, 32410.824657534245)
+        self.assertEqual(mae, 23093.063676581867)
 
 
 if __name__ == "__main__":
